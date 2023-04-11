@@ -1,3 +1,4 @@
+import 'package:core_ui/component/lifecycle_overlay/app_lifecycle_overlay.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +13,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Background App Blurred Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      builder: (BuildContext builderContext, Widget? child) => Overlay(
+        initialEntries: <OverlayEntry>[
+          OverlayEntry(
+            builder: (BuildContext context) => AppLifecycleOverlay(
+              child: MyHomePage(title: 'Test Overlay'),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -65,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 100,
               height: 50,
               decoration: BoxDecoration(
-                color: VCoreColors.vWhite500,
+                color: VCoreColors.vBranda500,
                 boxShadow: [
                   VCoreShadow.vShadow4Revert(),
                 ],

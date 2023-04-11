@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:core_ui/component/layout/blurry_container.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 
 class AppLifecycleOverlay extends StatefulWidget {
@@ -45,12 +47,15 @@ class _AppLifecycleOverlayState extends State<AppLifecycleOverlay>
       return Stack(
         children: [
           widget.child,
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-            child: Container(
+          BlurryContainer(
+            blur: 15,
+            color: Colors.white.withOpacity(0.6),
+            // boxShadow: [
+            //   VCoreShadow.vShadow4(),
+            // ],
+            child: SizedBox(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              color: Colors.red,
             ),
           ),
         ],

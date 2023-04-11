@@ -1,6 +1,6 @@
+import 'package:core_ui/component/gap/rendering/gap.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import '/rendering/gap.dart';
 
 /// A widget that takes a fixed amount of space in the direction of its parent.
 ///
